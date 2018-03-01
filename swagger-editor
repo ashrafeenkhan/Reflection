@@ -1,0 +1,45 @@
+swagger: '2.0'
+info:
+  description: ""
+  version: "1.0.0"
+  title: "api-elastic-search"
+host: "api-openweathermap.org"
+basepath: "/data/2.5"
+tags:
+  - name: "weather"
+    description: "Access to Open Weather Maps"
+schemes:
+  - http
+# Describe your paths here
+paths:
+  /weather:
+    get:
+      tags:
+        - "weather"
+      summary: "Get Weather By City"
+      description: "Pass in a City name as a input parameter"
+      operationId: findPetsByStatus
+      produces:
+        - "application/xml"
+        - "application/json"
+      parameters:
+        - name: "q"
+          in: "query"
+          description: "City name to be provided here"
+          required: true
+          type: "string"
+        - name: "APPID"
+          in: "query"
+          description: "API Key"
+          required: true
+          type: "string"
+          defauly: "a62061f11806cf3ea314bb7c6aa1b74e"
+      responses:
+        200:
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Pet'
+        '400':
+          description: Invalid status value
