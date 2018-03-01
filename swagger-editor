@@ -10,6 +10,7 @@ tags:
   description: "Access to Open Weather Maps"
 schemes:
 - "http"
+- "https"
 paths:
   /weather:
     get:
@@ -28,7 +29,7 @@ paths:
         type: "string"
       - name: "APPID"
         in: "query"
-        description: "API Key"
+        description: "API Key belongs to Ashrafeen"
         required: true
         type: "string"  
         default: "a62061f11806cf3ea314bb7c6aa1b74e"
